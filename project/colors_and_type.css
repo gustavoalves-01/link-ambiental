@@ -1,0 +1,322 @@
+/* ============================================================
+   Link Ambiental — Colors & Type
+   Premium SSMA consultancy. Forest-and-leaf palette, single
+   typeface system (Oxygen), generous whitespace.
+   ============================================================ */
+
+/* -------- Brand webfonts (local TTFs in /fonts) -------- */
+/* Oxygen — primary display + UI sans */
+@font-face {
+  font-family: "Oxygen";
+  src: url("fonts/Oxygen-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Oxygen";
+  src: url("fonts/Oxygen-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Oxygen";
+  src: url("fonts/Oxygen-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* Neuton — editorial serif (longform, quotes, accents) */
+@font-face {
+  font-family: "Neuton";
+  src: url("fonts/Neuton-ExtraLight.ttf") format("truetype");
+  font-weight: 200; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neuton";
+  src: url("fonts/Neuton-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neuton";
+  src: url("fonts/Neuton-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neuton";
+  src: url("fonts/Neuton-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Neuton";
+  src: url("fonts/Neuton-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neuton";
+  src: url("fonts/Neuton-ExtraBold.ttf") format("truetype");
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ---------------------------------------------------------
+     COLORS — sourced directly from the Figma file
+     --------------------------------------------------------- */
+
+  /* Primary brand greens — the leafy "link" wordmark */
+  --la-leaf-solid:        #8FD089; /* 143,208,137 — primary logo fill, headline accent */
+  --la-leaf-light:        #ACD9B1; /* 172,217,177 — soft contrast version of the logo */
+  --la-leaf-deep:         #69C367; /* 105,195,103 — saturated leaf, active states */
+  --la-leaf-pale:         #DDF1DC; /* 221,241,220 — palest tint, surfaces & blocks */
+  --la-leaf-tint:         #E5FFE3; /* 229,255,227 — near-white wash */
+  --la-leaf-fresh:        #94F1C3; /* 148,241,195 — mint accent, occasional */
+
+  /* Forest darks — text, deep surfaces, footers, overlays */
+  --la-forest-900:        #0D2A2A; /* 13,42,42  — deepest, body text on light */
+  --la-forest-800:        #0D2A22; /* 13,42,34  — alt deep, large fill blocks */
+  --la-forest-700:        #06402B; /*  6,64,43  — rich dark brand */
+  --la-forest-600:        #3C6D55; /* 60,109,85 — secondary dark green */
+  --la-forest-500:        #6D9D72; /* 109,157,114 — body-on-dark, muted */
+  --la-forest-400:        #4A9D7E; /* 74,157,126 — bridge tone */
+  --la-forest-300:        #3D7068; /* 61,112,104 — teal-leaning */
+
+  /* Neutrals */
+  --la-white:             #FFFFFF;
+  --la-paper:             #FAFBF8; /* page background, slightly warm-cool off-white */
+  --la-fog:               #F0F2EE; /* pale section divider */
+  --la-stone-300:         #C9D0CD;
+  --la-stone-500:         #486065; /* slate cool — subtitles, captions */
+  --la-stone-700:         #364536; /* near-black neutral */
+  --la-ink:               #000000;
+
+  /* Accents (used very sparingly) */
+  --la-citron:            #BED858; /* lime accent, certifications/highlights */
+  --la-citron-pale:       #EDFFA3;
+  --la-sky:               #5EBDD1; /* cool aqua — water/quality contexts */
+  --la-sky-pale:          #DFF9FF;
+
+  /* ---------------------------------------------------------
+     SEMANTIC TOKENS
+     --------------------------------------------------------- */
+  --fg-1:                 var(--la-forest-900);   /* primary text */
+  --fg-2:                 var(--la-forest-600);   /* secondary text */
+  --fg-3:                 var(--la-stone-500);    /* muted / captions */
+  --fg-on-dark:           var(--la-white);
+  --fg-on-dark-2:         var(--la-leaf-light);
+  --fg-brand:             var(--la-leaf-solid);
+  --fg-link:              var(--la-forest-700);
+
+  --bg-1:                 var(--la-white);        /* primary canvas */
+  --bg-2:                 var(--la-paper);        /* page bg */
+  --bg-3:                 var(--la-fog);          /* alt surface */
+  --bg-tint:              var(--la-leaf-pale);    /* brand-tinted surface */
+  --bg-dark:              var(--la-forest-900);   /* dark hero / footer */
+  --bg-dark-2:            var(--la-forest-800);   /* deep block */
+
+  --border-soft:          rgba(13, 42, 42, 0.08);
+  --border-strong:        rgba(13, 42, 42, 0.18);
+  --border-on-dark:       rgba(255, 255, 255, 0.14);
+
+  /* Photo-overlay gradient used across banners (top transparent → forest) */
+  --overlay-photo:        linear-gradient(180deg, rgba(0,0,0,0) 28%, var(--la-forest-900) 100%);
+  --overlay-photo-side:   linear-gradient(90deg, rgba(13,42,42,0.85) 0%, rgba(13,42,42,0.0) 65%);
+
+  /* ---------------------------------------------------------
+     TYPOGRAPHY
+     Type system uses Oxygen exclusively (Bold / Regular / Light).
+     The brand pairs heavy Bold display with airy Light subhead.
+     --------------------------------------------------------- */
+  --font-display:         "Oxygen", "Helvetica Neue", Arial, sans-serif;
+  --font-body:            "Oxygen", "Helvetica Neue", Arial, sans-serif;
+  --font-serif:           "Neuton", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-mono:            ui-monospace, SFMono-Regular, "JetBrains Mono", Consolas, monospace;
+
+  --fw-light:             300;
+  --fw-regular:           400;
+  --fw-bold:              700;
+
+  /* Scale — generous, premium feel. Fluid via clamp where useful. */
+  --fs-display-xl:        clamp(56px, 8vw, 120px);
+  --fs-display:           clamp(40px, 5.6vw, 72px);
+  --fs-h1:                clamp(32px, 3.6vw, 48px);
+  --fs-h2:                clamp(26px, 2.6vw, 36px);
+  --fs-h3:                22px;
+  --fs-h4:                18px;
+  --fs-body-lg:           18px;
+  --fs-body:              16px;
+  --fs-body-sm:           14px;
+  --fs-eyebrow:           12px;
+
+  --lh-tight:             1.0;     /* display, like the banners */
+  --lh-snug:              1.15;
+  --lh-normal:            1.5;
+  --lh-loose:             1.7;
+
+  --tracking-eyebrow:     0.18em;  /* uppercase eyebrows */
+  --tracking-tight:       -0.01em;
+  --tracking-normal:      0;
+
+  /* ---------------------------------------------------------
+     SPACING / RADII / SHADOWS / MOTION
+     --------------------------------------------------------- */
+  --space-1:              4px;
+  --space-2:              8px;
+  --space-3:              12px;
+  --space-4:              16px;
+  --space-5:              24px;
+  --space-6:              32px;
+  --space-7:              48px;
+  --space-8:              64px;
+  --space-9:              96px;
+  --space-10:             128px;
+
+  --radius-xs:            4px;
+  --radius-sm:            8px;
+  --radius-md:            14px;     /* default card radius */
+  --radius-lg:            22px;
+  --radius-pill:          999px;
+
+  --shadow-1:             0 1px 2px rgba(13,42,42,0.06);
+  --shadow-2:             0 4px 14px rgba(13,42,42,0.08);
+  --shadow-3:             0 18px 40px -12px rgba(13,42,42,0.18);
+  --shadow-leaf:          0 12px 36px -10px rgba(143,208,137,0.55);
+
+  --ease-out:             cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out:          cubic-bezier(0.65, 0.05, 0.36, 1);
+  --dur-fast:             140ms;
+  --dur-base:             220ms;
+  --dur-slow:             420ms;
+}
+
+/* ============================================================
+   SEMANTIC CLASSES — drop on elements directly
+   ============================================================ */
+
+html, body { background: var(--bg-2); color: var(--fg-1); font-family: var(--font-body); }
+
+.la-eyebrow {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.la-display-xl {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display-xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+
+.la-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+
+/* Signature two-tone display — bold leaf word + light continuation.
+   Mirrors banner usage: "Inovação" bold leaf-green, "que transforma" light. */
+.la-display-pair {
+  font-family: var(--font-display);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+}
+.la-display-pair .lead     { font-weight: var(--fw-bold);    color: var(--fg-brand); }
+.la-display-pair .follow   { font-weight: var(--fw-light);   color: var(--la-leaf-light); display: block; }
+.la-display-pair .punch    { font-weight: var(--fw-bold);    color: var(--fg-brand); display: block; }
+
+h1, .la-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+h2, .la-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+h3, .la-h3 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+h4, .la-h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+p, .la-p {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+.la-lead {
+  font-family: var(--font-body);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+.la-caption {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg-3);
+}
+
+.la-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  color: var(--fg-2);
+}
+
+/* Editorial serif — Neuton — for pull-quotes, longform editorial,
+   case-study chrome. Pairs italic against the geometric Oxygen sans. */
+.la-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--fg-1);
+}
+.la-serif-quote {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.3;
+  color: var(--fg-1);
+  letter-spacing: -0.005em;
+}
+.la-serif-display {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--fg-1);
+}
+
+/* Inverse — for use over dark/photo backgrounds */
+.la-on-dark { color: var(--fg-on-dark); }
+.la-on-dark p, .la-on-dark .la-p { color: rgba(255,255,255,0.78); }
+.la-on-dark .la-eyebrow { color: var(--la-leaf-solid); }
