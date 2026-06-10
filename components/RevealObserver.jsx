@@ -1,8 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function RevealObserver() {
+  const pathname = usePathname()
+
   useEffect(() => {
     const els = document.querySelectorAll('.reveal:not(.in-view)')
     if (!('IntersectionObserver' in window)) {
@@ -22,7 +25,7 @@ export default function RevealObserver() {
     )
     els.forEach((el) => obs.observe(el))
     return () => obs.disconnect()
-  }, [])
+  }, [pathname])
 
   return null
 }
