@@ -59,7 +59,11 @@ export default function Footer() {
 
         <div className="footer-bar">
           <span>© {year} Link Ambiental · CNPJ {CONTACT.cnpj}</span>
-          <span>Meio Ambiente · Saúde · Segurança do Trabalho · Sustentabilidade</span>
+          <span className="footer-legal-links">
+            <Link href="/politica-de-privacidade">Privacidade</Link>
+            <Link href="/termos-de-servico">Termos</Link>
+            <Link href="/exclusao-de-dados">Exclusão de dados</Link>
+          </span>
         </div>
       </div>
     </footer>
