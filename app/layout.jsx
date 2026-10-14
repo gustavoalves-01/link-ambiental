@@ -68,19 +68,41 @@ export const metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  manifest: "/site.webmanifest",
   icons: {
     icon: [
       {
-        url: "/assets/logo/link-ambiental-leaf-stroke.svg",
-        type: "image/svg+xml",
+        url: "/favicon.ico",
+        type: "image/x-icon",
+      },
+      {
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
       },
     ],
+    apple: "/apple-touch-icon.png",
   },
   facebookDomainVerification: "oslj2ndpj6wny2uycjwah9dpya2zrc",
 };
 
 export const viewport = {
-  themeColor: "#0D2A2A",
+  themeColor: "#499D83",
   width: "device-width",
   initialScale: 1,
 };

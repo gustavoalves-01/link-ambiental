@@ -11,6 +11,8 @@ const NAV_LINKS = [
   { href: "/servicos", label: "Serviços" },
   { href: "/sobre", label: "Sobre" },
   { href: "/contato", label: "Contato" },
+  { href: "/blog", label: "Blog", wordpress: true },
+  { href: "/blog/categorias", label: "Categorias", wordpress: true },
 ];
 
 export default function Header() {
@@ -28,6 +30,27 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
+
+  const isActive = (href) =>
+    href === "/blog" ? pathname === "/blog" : pathname === href;
+
+  const renderNavLink = (link) => {
+    const className = isActive(link.href) ? "active" : undefined;
+
+    if (link.wordpress) {
+      return (
+        <a href={link.href} className={className}>
+          {link.label}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={link.href} className={className}>
+        {link.label}
+      </Link>
+    );
+  };
 
   return (
     <header className={`la-header${scrolled ? " scrolled" : ""}`}>
@@ -51,12 +74,7 @@ export default function Header() {
           <ul className="la-nav">
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className={pathname === l.href ? "active" : undefined}
-                >
-                  {l.label}
-                </Link>
+                {renderNavLink(l)}
               </li>
             ))}
           </ul>
@@ -82,12 +100,7 @@ export default function Header() {
           <ul>
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className={pathname === l.href ? "active" : undefined}
-                >
-                  {l.label}
-                </Link>
+                {renderNavLink(l)}
               </li>
             ))}
             <li className="menu-cta">
