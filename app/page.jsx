@@ -6,19 +6,19 @@ const SCOPE = ['LP', 'LI', 'LO', 'PGR', 'AVCB', 'ASO', 'LTCAT', 'PCMSO', 'CADRI'
 
 const RISKS = [
   {
-    n: '01', title: 'Licença vencida',
+    n: '01', icon: 'ban', title: 'Licença vencida',
     body: 'Operação exposta à paralisação e multa proporcional ao faturamento — um vencimento esquecido pode custar meses de operação.',
   },
   {
-    n: '02', title: 'Laudo atrasado',
+    n: '02', icon: 'clock', title: 'Laudo atrasado',
     body: 'PGR, LTCAT e AVCB sem renovação no prazo. A auditoria descobre antes de você — e o passivo já está formado.',
   },
   {
-    n: '03', title: 'Órgão sem resposta',
+    n: '03', icon: 'alert', title: 'Órgão sem resposta',
     body: 'Protocolos parados na CETESB, no IBAMA ou na prefeitura, sem ninguém acompanhando e sem previsão de andamento.',
   },
   {
-    n: '04', title: 'Responsabilidade pessoal',
+    n: '04', icon: 'user', title: 'Responsabilidade pessoal',
     body: 'Cada pendência é um risco potencial — e o nome no formulário é o do responsável técnico. O seu.',
   },
 ]
@@ -148,13 +148,13 @@ export default function Home() {
       </section>
 
       {/* Riscos — editorial */}
-      <section className="section-pad" id="riscos">
+      <section className="section-pad band-dark band-risk on-dark" id="riscos">
         <div className="la-container">
           <div className="pain-grid">
             <div className="pain-sticky reveal">
               <span className="eyebrow">Por que importa</span>
               <h2 className="headline">
-                O ambiente regulatório não para de crescer. <span className="grad">Os riscos também.</span>
+                O ambiente regulatório não para de crescer. <span className="alert-text">Os riscos também.</span>
               </h2>
               <p className="lead">
                 A maioria das consultorias entrega documentos. Pouquíssimas gerenciam o processo de ponta a ponta — e é exatamente aí que a operação descarrila.
@@ -165,6 +165,7 @@ export default function Home() {
               {RISKS.map((r, i) => (
                 <div key={r.n} className="risk-item reveal" data-delay={(i % 2) + 1}>
                   <span className="ghost" aria-hidden="true">{r.n}</span>
+                  <span className="risk-ic" aria-hidden="true"><Icon name={r.icon} size={18} /></span>
                   <h3>{r.title}</h3>
                   <p>{r.body}</p>
                 </div>
@@ -177,7 +178,7 @@ export default function Home() {
       {/* Números — banda escura */}
       <section className="section-pad-sm">
         <div className="la-container">
-          <div className="stats-band glass-dark sheen on-dark reveal">
+          <div className="stats-band glass glass-strong sheen reveal">
             <span className="eyebrow">A Link em síntese</span>
             <h2 className="headline" style={{ maxWidth: 620, marginTop: 22 }}>
               Autoridade técnica <span className="light">construída de dentro da operação.</span>
@@ -185,7 +186,7 @@ export default function Home() {
             <div className="stats-band-grid">
               {FACTS.map((f) => (
                 <div key={f.num} className="stat-big">
-                  <span className="num grad-dark">{f.num}</span>
+                  <span className="num grad">{f.num}</span>
                   <span className="lbl">{f.lbl}</span>
                 </div>
               ))}
@@ -216,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Processo — linha do tempo */}
-      <section className="section-pad-sm" id="processo">
+      <section className="section-pad band-dark band-process on-dark" id="processo">
         <div className="la-container">
           <div className="section-head reveal">
             <span className="eyebrow">Como trabalhamos</span>

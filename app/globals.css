@@ -21,8 +21,9 @@
   --la-sky: #5ebdd1;
 
   --fg-1: var(--la-forest-900);
-  --fg-2: rgba(13, 42, 42, 0.66);
-  --fg-3: rgba(13, 42, 42, 0.45);
+  --fg-2: rgba(13, 42, 42, 0.8);
+  --fg-3: rgba(13, 42, 42, 0.62);
+  --la-amber: #f2b45a;
 
   /* Vidro */
   --glass-bg: linear-gradient(
@@ -242,7 +243,7 @@ p {
 .headline .light {
   font-weight: 400;
   font-style: italic;
-  color: var(--la-forest-600);
+  color: var(--la-forest-700);
 }
 .title {
   font-family: var(--font-display);
@@ -971,6 +972,13 @@ a.glass-card:hover {
   text-transform: uppercase;
   color: var(--fg-3);
 }
+.glass-card {
+  background: var(--glass-bg-strong);
+  border-color: rgba(13, 42, 42, 0.08);
+  box-shadow:
+    0 24px 60px -28px rgba(13, 42, 42, 0.28),
+    var(--glass-highlight);
+}
 .glass-card p {
   font-size: 15px;
 }
@@ -1615,6 +1623,90 @@ a.glass-card:hover {
   margin-top: 8px;
 }
 
+/* Bandas escuras de largura total (ritmo claro/escuro) */
+.band-dark {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0d2a2a 0%, #06402b 100%);
+  color: var(--la-white);
+}
+.band-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      60% 50% at 85% 0%,
+      rgba(143, 208, 137, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(50% 45% at 0% 100%, rgba(94, 189, 209, 0.12), transparent 70%);
+}
+.band-dark > * {
+  position: relative;
+}
+.band-risk::before {
+  background:
+    radial-gradient(
+      55% 50% at 90% 0%,
+      rgba(242, 180, 90, 0.18),
+      transparent 70%
+    ),
+    radial-gradient(50% 45% at 0% 100%, rgba(94, 189, 209, 0.1), transparent 70%);
+}
+.on-dark .lead {
+  color: rgba(255, 255, 255, 0.82);
+}
+.on-dark p {
+  color: rgba(255, 255, 255, 0.82);
+}
+.alert-text {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--la-amber);
+}
+.band-risk .risk-item {
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+.band-risk .risk-item:last-child {
+  border-bottom-color: rgba(255, 255, 255, 0.16);
+}
+.band-risk .risk-item .ghost {
+  -webkit-text-stroke-color: rgba(242, 180, 90, 0.55);
+}
+.band-risk .risk-item:hover .ghost {
+  -webkit-text-stroke-color: var(--la-amber);
+}
+.risk-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  color: var(--la-amber);
+  background: rgba(242, 180, 90, 0.14);
+  border: 1px solid rgba(242, 180, 90, 0.35);
+}
+.risk-ic svg {
+  width: 18px;
+  height: 18px;
+}
+.band-process .timeline-item .k {
+  color: var(--la-leaf-solid);
+}
+.band-process .timeline-item .meta span {
+  color: var(--la-leaf-light);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+.band-process .timeline-dot {
+  border-color: #0d2a2a;
+}
+
 /* Banda de números (vidro escuro) */
 .stats-band {
   padding: 64px;
@@ -1630,7 +1722,7 @@ a.glass-card:hover {
   gap: 36px;
   margin-top: 44px;
   padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(13, 42, 42, 0.12);
 }
 @media (max-width: 920px) {
   .stats-band-grid {
@@ -1647,7 +1739,7 @@ a.glass-card:hover {
 .stat-big .lbl {
   display: block;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--fg-2);
   margin-top: 14px;
   max-width: 220px;
   line-height: 1.55;
@@ -1747,7 +1839,7 @@ a.glass-card:hover {
   font-weight: 700;
   font-size: 16px;
   color: var(--la-forest-700);
-  opacity: 0.62;
+  opacity: 0.85;
   transition: all var(--dur-base) var(--ease-out);
 }
 .sector-mark:hover {
