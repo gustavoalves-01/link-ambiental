@@ -11,8 +11,12 @@ const NAV_LINKS = [
   { href: "/servicos", label: "Serviços" },
   { href: "/sobre", label: "Sobre" },
   { href: "/contato", label: "Contato" },
-  { href: "/blog", label: "Blog", wordpress: true },
-  { href: "/blog/categorias", label: "Categorias", wordpress: true },
+  { href: "https://blog.linkambiental.com", label: "Blog", external: true },
+  {
+    href: "https://blog.linkambiental.com/categorias/",
+    label: "Categorias",
+    external: true,
+  },
 ];
 
 export default function Header() {
@@ -31,13 +35,12 @@ export default function Header() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const isActive = (href) =>
-    href === "/blog" ? pathname === "/blog" : pathname === href;
+  const isActive = (href) => pathname === href;
 
   const renderNavLink = (link) => {
     const className = isActive(link.href) ? "active" : undefined;
 
-    if (link.wordpress) {
+    if (link.external) {
       return (
         <a href={link.href} className={className}>
           {link.label}
